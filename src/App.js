@@ -1,25 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Security, LoginCallback } from '@okta/okta-react'
 
 function App() {
+  const config = {
+    issuer: 'https://${https://dev-861398.okta.com}/oauth2/default',
+    redirectUri: window.location.origin + '/implicit/callback',
+    clientId: '{0oaayl2ctfmraSx404x6}',
+    pkce: true
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Security {...config}>
+      <div>
+      
+      </div>
+    </Security>
   );
 }
 
