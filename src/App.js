@@ -1,7 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom'
 import { Security, LoginCallback } from '@okta/okta-react'
+
+import LogButton from './components/LogButton'
 
 function App() {
   const config = {
@@ -13,9 +15,8 @@ function App() {
 
   return (
     <Security {...config}>
-      <div>
-      
-      </div>
+      <Route exact path='/' component={LogButton} />
+      <Route path='/implicit/callback' component={LoginCallback} />
     </Security>
   );
 }
